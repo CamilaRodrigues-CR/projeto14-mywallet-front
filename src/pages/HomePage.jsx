@@ -1,13 +1,16 @@
 import styled from "styled-components"
 import { BiExit } from "react-icons/bi"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
   return (
     <HomeContainer>
       <Header>
         <h1>Olá, Fulano</h1>
-        <BiExit />
+        <Link to="/">
+          <BiExit />
+        </Link>
       </Header>
 
       <TransactionsContainer>
@@ -50,6 +53,9 @@ export default function HomePage() {
     </HomeContainer>
   )
 }
+
+
+//---------------------------------------------- estilização -------------------------------------------------------
 
 const HomeContainer = styled.div`
   display: flex;
