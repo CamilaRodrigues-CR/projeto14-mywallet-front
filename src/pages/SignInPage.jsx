@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom"
 import MyWalletLogo from "../components/MyWalletLogo"
-
 import { useState } from "react"
 import apiAuth from "../services/apiAuth"
 
@@ -24,6 +23,7 @@ export default function SignInPage() {
       })
       .catch(err => {
         console.log(err.response.data)
+        alert(err.response.message)
       })
   }
 
@@ -49,7 +49,7 @@ export default function SignInPage() {
           required
         />
 
-        <button>Entrar</button>
+        <button type="submit">Entrar</button>
       </form>
 
       <Link to="/cadastro">
