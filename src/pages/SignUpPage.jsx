@@ -18,9 +18,16 @@ export default function SignUpPage() {
 
   function signUp(e) {
     e.preventDefault()
+    
+    if (form.email.length === 0 || form.name.length === 0 || password.length === 0) {
+      return alert ("Preencha todos os campos")
+    }
 
     if (form.password !== confirmPassword.confirmPassword) {
       return alert("As senhas devem ser iguais!")
+    } 
+    if (form.password.length < 3){
+      return alert("A senha deve ter ao menos 3 caracteres!")
     }
   
 
@@ -32,7 +39,7 @@ export default function SignUpPage() {
         .catch(err => {
           console.log(err.response.data)
           
-          alert(err.response.message)
+          alert(err.response.data)
         })
   }
 
