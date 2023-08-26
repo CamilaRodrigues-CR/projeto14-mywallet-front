@@ -31,6 +31,7 @@ export default function SignUpPage() {
         })
         .catch(err => {
           console.log(err.response.data)
+          
           alert(err.response.message)
         })
   }

@@ -7,7 +7,7 @@ function signIn (body){
 
 
 function signUp (body){
-    const promise = axios.post(`${import.meta.env.VITE_API_URL}/signUp`, body)    
+    const promise = axios.post(`${import.meta.env.VITE_API_URL}/cadastro`, body)    
     return promise;
 }
 
