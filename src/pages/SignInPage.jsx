@@ -25,6 +25,7 @@ export default function SignInPage() {
         console.log(err.response.data)
         alert(err.response.message)
       })
+      
   }
 
   return (
