@@ -9,8 +9,8 @@ export default function SignInPage() {
   const [form, setForm] = useState({ email: "", password: "" })
   const navigate = useNavigate()
 
-  function handleSignIn(e){
-    setForm({...form, [e.target.name]: e.target.value})
+  function handleSignIn(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   function signIn(e) {
@@ -23,9 +23,9 @@ export default function SignInPage() {
       })
       .catch(err => {
         console.log(err.response.data)
-        alert(err.response.message)
+        alert(err.response.data)
       })
-      
+
   }
 
   return (
@@ -33,6 +33,7 @@ export default function SignInPage() {
       <form onSubmit={signIn}>
         <MyWalletLogo />
         <input
+          data-test="email"
           name="email"
           placeholder="E-mail"
           type="email"
@@ -41,6 +42,7 @@ export default function SignInPage() {
           required
         />
         <input
+          data-test="password"
           name="password"
           placeholder="Senha"
           type="password"
@@ -50,7 +52,7 @@ export default function SignInPage() {
           required
         />
 
-        <button type="submit">Entrar</button>
+        <button data-test="sign-in-submit" type="submit">Entrar</button>
       </form>
 
       <Link to="/cadastro">

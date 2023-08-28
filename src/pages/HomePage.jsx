@@ -9,7 +9,9 @@ export default function HomePage() {
       <Header>
         <h1>Olá, Fulano</h1>
         <Link to="/">
-          <BiExit />
+          <button data-test="logout" >
+            <BiExit />
+          </button>
         </Link>
       </Header>
 
