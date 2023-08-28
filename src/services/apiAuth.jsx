@@ -11,7 +11,16 @@ function signUp (body){
     return promise;
 }
 
+function transitions () {
+    const promise = axios.get(`${import.meta.env.VITE_API_URL}/transitions`)    
+    return promise;
+}
 
-const apiAuth = {signIn, signUp};
+function signOut(){
+    const promise = axios.delete(`${import.meta.env.VITE_API_URL}/signOut`)    
+    return promise;
+}
+
+const apiAuth = {signIn, signUp, transitions, signOut};
 
 export default apiAuth;

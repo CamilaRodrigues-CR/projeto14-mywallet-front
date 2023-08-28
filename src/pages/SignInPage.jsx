@@ -20,6 +20,10 @@ export default function SignInPage() {
       .then(res => {
         console.log(res.data)
         navigate("/home")
+
+        const { name,token } = res.data
+        localStorage.setItem("token", token)
+
       })
       .catch(err => {
         console.log(err.response.data)

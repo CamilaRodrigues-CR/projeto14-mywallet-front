@@ -1,9 +1,43 @@
 import styled from "styled-components"
 import { BiExit } from "react-icons/bi"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import apiAuth from "../../services/apiAuth";
+import { useState , useEffect } from "react";
 
 export default function HomePage() {
+  const [transacoes, setTransacoes] = useState()
+  const navigate = useNavigate()
+  
+  function signOut() {
+    apiAuth.signOut()
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err.response.data)
+      alert(err.response.data)
+    })
+  }
+
+  useEffect(() => {
+
+    apiAuth.transitions()
+    .then(res => {
+      console.log(res.data)
+      navigate("/")
+    })
+    .catch(err => {
+      console.log(err.response.data)
+      alert(err.response.data)
+    })
+
+}, []);
+
+if (transacoes === undefined) {
+  return <div>Carregando...</div>;
+}
+
   return (
     <HomeContainer>
       <Header>
