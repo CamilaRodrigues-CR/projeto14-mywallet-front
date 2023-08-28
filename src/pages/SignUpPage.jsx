@@ -19,7 +19,7 @@ export default function SignUpPage() {
   function signUp(e) {
     e.preventDefault()
     
-    if (form.email.length === 0 || form.name.length === 0 || password.length === 0) {
+    if (form.email.length === 0 || form.name.length === 0 || form.password.length === 0) {
       return alert ("Preencha todos os campos")
     }
 
